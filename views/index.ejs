@@ -1,0 +1,32 @@
+<% include partials/header %>
+	<div class="ui main text container">
+		<div class="ui huge header">
+			Restful blog App
+		</div>
+		<div class="ui top attached segment">
+			<div class="ui divided items">
+				<% blogs.forEach(function(blog){ %>
+				<div class="item">
+					<div class="image">
+						<img class="ui Large rounded image"  src="<%= blog.image %>">
+					</div>
+					<div class="content">
+						<h3><%= blog.title %></h3>
+						<div class="meta">
+							<span>Created time <%= blog.created.toDateString() %> </span>
+							<div class="description">
+								<h3><%= blog.description.substring(0,100) %>......</h3>
+							</div>
+						</div>
+						<div class="extra">
+							<a href="/blogs/<%= blog._id %>" class="ui  blue inverted button">More info <i class="right chevron icon"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<% }) %> 
+			</div>
+		</div>
+	</div>
+<% include partials/footer %>
+
